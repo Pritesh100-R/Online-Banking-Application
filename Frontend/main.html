@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Welcome Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    setInterval(changeColor, 2000); // Call the function every 1 second
+
+    function changeColor() {
+      var title = document.getElementById('bank-title');
+      var currentColor = title.style.color;
+      var newColor = currentColor === 'white' ? 'black' :  'white';
+      title.style.color = newColor;
+    }
+    function goToUserPortal() {
+    window.open('http://localhost:4200', '_blank');
+  }
+
+  function goToAdminPortal() {
+    window.open('http://localhost:4201', '_blank');}
+  </script>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      
+      
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #54585e, #2b3c5b);
+      color: #fff;
+      margin-top: 80px;
+      border-radius: 10px;
+     
+    }
+
+    .bank-logo {
+      margin-bottom: 20px;
+      border-radius: 10%;
+      border: #fff;
+      border-style: initial;
+      box-shadow: 0px 0px 30px 5px rgb(199, 213, 213);
+      margin-top: 5%;
+      width: 250px;
+      height: 150px;
+    }
+
+    .bank-name {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .advertisement {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #e6e6f0;
+      transition: height 0.3s;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .advertisement:hover {
+      height: auto;
+      color:  burlywood; /* Color on hover */
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      background-color: #111111;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: auto;
+    }
+
+    .button-container button:hover {
+      background-color: #3e3ebc;
+    }
+
+    .button-container .button-img {
+      display: block;
+      margin: 0 auto 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body> 
+  <div class="container">
+    <img class="bank-logo" src="logo.png" alt="Bank Logo">
+    <div class="bank-details">
+      <div class="bank-name" id="bank-title">RPS BANK</div>
+      <div class="advertisement">  Get ready for a new banking experience like never before!
+        At RPS Bank, we offer innovative financial solutions tailored to your unique needs.
+        Enjoy secure and convenient online banking services, 24/7 customer support, and competitive interest rates.
+        Let us help you achieve your financial goals and dreams. Join us today!
+      </div></div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button onclick="goToUserPortal()">
+      <img class="button-img" src="admin.png" alt="User Image">
+      Login as User
+    </button>
+    <button onclick="goToAdminPortal()"  style="margin-left: 7%;">
+      <img class="button-img" src="user.jpeg" alt="Admin Image">
+      Login as Admin
+    </button>
+  </div>
+</body>
+</html>

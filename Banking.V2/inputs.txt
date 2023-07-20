@@ -1,0 +1,20 @@
+{
+    "firstname":"Pritesh",
+    "lastname": "Shambharkar",
+    "fathername": "Amol",
+    "gender": "Male",
+    "phone" : 75887766997,
+    "address": "VidyaNagar",
+    "email":"pshambharkar86@gmail.com",
+    "username": "U4049",
+    "password": "1234",
+    "dob": "2002-01-23",
+    "identitytype": "Adhar",
+    "identityno": 6985482,
+    "adharno":74898627
+}
+
+{
+    "username" : "U40459",
+    "password":"1234"
+}

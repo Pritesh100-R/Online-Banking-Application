@@ -1,0 +1,144 @@
+<div class="X">
+<div class="container">
+  
+
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+  <div class="col-xs-4" style="left:40%;">
+    <br>
+    <h3 style="text-align: center;">User Registration</h3>
+    <br>
+
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+        <input type="text" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.firstname.errors }" placeholder="Enter First Name here"/>
+        <div *ngIf="submitted && fval.firstname.errors" class="invalid-feedback">
+            <div *ngIf="fval.firstname.errors.required">First Name is required</div>
+        </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+        <input type="text" formControlName="lastname" class="form-control"  [ngClass]="{ 'is-invalid': submitted && fval.lastname.errors }" placeholder="Enter Last Name"/>
+        <div *ngIf="submitted && fval.lastname.errors" class="invalid-feedback">
+          <div *ngIf="fval.lastname.errors.required">lastname is required</div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="fathername">Father Name</label>
+        <input type="text" formControlName="fathername" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.fathername.errors }" placeholder="Enter Father Name here"/>
+        <div *ngIf="submitted && fval.fathername.errors" class="invalid-feedback">
+            <div *ngIf="fval.fathername.errors.required">Father Name is required</div>
+        </div>
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="male" formControlName="gender" value="Male" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && fval.gender.errors }">
+      <label for="male" class="form-check-label">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="female" formControlName="gender" value="Female" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && fval.gender.errors }">
+      <label for="female" class="form-check-label">Female</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="other" formControlName="gender" value="Other" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && fval.gender.errors }">
+      <label for="other" class="form-check-label">Other</label>
+    </div>
+    <div *ngIf="submitted && fval.gender.errors" class="invalid-feedback">
+      <div *ngIf="fval.gender.errors.required">Gender is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="userName">Username</label>
+        <input type="text" formControlName="userName" class="form-control"  [ngClass]="{ 'is-invalid': submitted && fval.userName.errors }" placeholder="Enter User Name"/>
+        <div *ngIf="submitted && fval.userName.errors" class="invalid-feedback">
+          <div *ngIf="fval.userName.errors.required">UserName is required</div>
+      </div>
+  </div>
+
+
+ 
+
+  <div class="form-group">
+    <label for="password"> Password</label>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter Password here"/>
+    <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+        <div *ngIf="fval.password.errors.required">Password is required</div>
+        <div *ngIf="fval.password.errors.minlength">Password must be at least 8 scharacters</div>
+    </div>
+  </div>
+
+    <div class="form-group">
+      <label for="dob">DOB</label>
+      <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.dob.errors }"/>
+      <div *ngIf="submitted && fval.dob.errors" class="invalid-feedback">
+          <div *ngIf="fval.dob.errors.required">Date of Birth is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Mobile No</label>
+      <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }" placeholder="Enter Phone here"/>
+      <div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+          <div *ngIf="fval.phone.errors.required">Phone is required</div>
+      </div>
+    </div>
+
+      <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.address.errors }" placeholder="Enter your Address"/>
+      <div *ngIf="submitted && fval.address.errors" class="invalid-feedback">
+          <div *ngIf="fval.address.errors.required">Address is required</div>
+      </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="type">Choose ID Type:</label>
+      <select class="form-control" formControlName="identitytype" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.identitytype.errors.required }" (change) = "filterSelected($event.target.value)" >
+        <option *ngFor="let t of identitytype" [value]='t.value'>
+          {{t.name}}
+        </option>
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="file">Upload your Id proof copy</label>
+        <input type="file" formControlName="file" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.file.errors }" />
+        <div *ngIf="submitted && fval.file.errors" class="invalid-feedback">
+          <div *ngIf="fval.file.errors.required">Required</div>
+      </div>
+      </div>      
+
+      <div class="form-group">
+        <label for="identityno">Enter Id Proof no:</label>
+        <input type="text" formControlName="identityno" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.identityno.errors }" placeholder="Enter Id Proof no: "/>
+        <div *ngIf="submitted && fval.identityno.errors" class="invalid-feedback">
+          <div *ngIf="fval.identityno.errors.required">Required</div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="adharno">Addhar Number</label>
+        <input type="text" id="adharno" formControlName="adharno" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.adharno.errors }" placeholder="Enter Addhar number" />
+        <div *ngIf="submitted && fval.adharno.errors" class="invalid-feedback">
+          <div *ngIf="fval.adharno.errors.required">adharno number is required</div>
+          <div *ngIf="fval.adharno.errors.pattern">Invalid adharno number</div>
+        </div>
+      </div> 
+
+    <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here"/>
+    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+        <div *ngIf="fval.email.errors.required">Email is required</div>
+        <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+    </div>
+  </div>
+
+  <div class="center1" style="text-align:center;">
+  <button class="btn btn-primary">Register</button>
+</div>
+
+</div>
+</form>
+</div>
+</div>
